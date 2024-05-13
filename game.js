@@ -10,21 +10,32 @@ backgroundImage.src = "assets/background.png"
 const appleImage = new Image()
 appleImage.src = "assets/apple.png"
 
+function checkCollision(pos1, pos2){
+    return pos1.x < pos2.x + 165 &&
+        pos1.x + 35 > pos2.x &&
+        pos1.y < pos2.y + 200 &&
+        pos1.y + 35 > pos2.y;
+}
+
 const character = new Character({
     img: characterImage,
     pos: {
         x: 150,
         y: 485
     }
+
+
 })
 
 
 const fruit = new Item({
     img: appleImage,
     pos: {
-        x: 150,
+        x: generateRandomCoordX(),
         y: 285
-    }
+    },
+    checkColision: checkCollision(),
+    character: character
 })
 
 const canvas = document.getElementById('game_canvas');
@@ -87,19 +98,22 @@ canvas.addEventListener("click", function (evt) {
 
 
 })
-function checkCollision(obj, ctx){
-    if (obj.x>=ctx.x){
-        console.log("kolizja")
-    }
-    else {
-        console.log("brak kolizji")
-    }
+
+function generateRandomCoordX(){
+    return  Math.floor(Math.random()*(900-300))+900
 }
+
+
+
+
+
+
 
 function game() {
         animate()
         backgroundMusic.loop=true
         backgroundMusic.play()
+
 
 
 
