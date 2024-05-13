@@ -1,0 +1,13 @@
+{
+  "name": "getthefruit",
+  "version": "1.0.0",
+  "main": "Character.js",
+  "scripts": {
+    "start": "node game.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module"
+}
