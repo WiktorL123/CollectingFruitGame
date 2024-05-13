@@ -45,6 +45,8 @@ const key = {
     ArrowLeft: {pressed: false}
 }
 
+const backgroundMusic = new Audio("/assets/Monkeys Spinning Monkeys (Kevin MacLeod) - Background Music (HD).mp3")
+
 
 window.addEventListener("keydown", function (evt) {
 
@@ -96,6 +98,9 @@ function checkCollision(obj, ctx){
 
 function game() {
         animate()
+        backgroundMusic.loop=true
+        backgroundMusic.play()
+
 
 
 
